@@ -1,15 +1,16 @@
 import React from "react";
 import {
     Image,
-    Text,
     Button,
     ButtonGroup,
     Container,
     Flex,
-    Tag,
     useToast,
 } from "@chakra-ui/react";
-import { titleCase, formatTag } from "../utils/textUtils";
+import PokeStat from "../text/PokeStat";
+import TagList from "../lists/TagList";
+import StyledTag from "../text/StyledTag";
+import { titleCase, formatTag, formatNumber } from "../../utils/utils";
 
 export default function PokemonCard({
     pokemonData,
@@ -132,96 +133,74 @@ export default function PokemonCard({
                     />
                 </Flex>
 
-                <Text>
-                    <b>Name:</b> {titleCase(pokemonData.name)}
-                </Text>
-                <Text>
-                    <b>Height (m):</b> {pokemonData.height / 10}
-                </Text>
-                <Text>
-                    <b>Weight (kg):</b> {pokemonData.weight / 10}
-                </Text>
+                <PokeStat label="Name" stat={titleCase(pokemonData.name)} />
+
+                <PokeStat
+                    label="Height (m)"
+                    stat={formatNumber(pokemonData.height)}
+                />
+
+                <PokeStat
+                    label="Weight (kg)"
+                    stat={formatNumber(pokemonData.weight)}
+                />
 
                 {!isPreview && (
                     <>
-                        <Text>
-                            <b>Base Experience: </b>
-                            {pokemonData.base_experience}
-                        </Text>
-                        <Text>
-                            <b>Species:</b> {pokemonData.species.name}
-                        </Text>
+                        <PokeStat
+                            label="Base Experience"
+                            stat={pokemonData.base_experience}
+                        />
+
+                        <PokeStat
+                            label="Species"
+                            stat={titleCase(pokemonData.species.name)}
+                        />
                     </>
                 )}
 
-                <Flex direction="column">
-                    <Text fontWeight="bold">Moves</Text>
-
-                    <Flex flexWrap="wrap">
-                        {pokemonData.moves.map((move, i) => (
-                            <Tag
-                                key={i}
-                                size="sm"
-                                margin="1"
-                                colorScheme="blue"
-                            >
-                                {formatTag(move.move.name)}
-                            </Tag>
-                        ))}
-                    </Flex>
-                </Flex>
+                <TagList label="Moves">
+                    {pokemonData.moves.map((move, i) => (
+                        <StyledTag key={i} text={formatTag(move.move.name)} />
+                    ))}
+                </TagList>
 
                 {!isPreview && (
                     <>
-                        <Flex direction="column">
-                            <Text fontWeight="bold">Abilities:</Text>
+                        <TagList label="Abilities">
+                            {pokemonData.abilities.map((ability, i) => (
+                                <StyledTag
+                                    key={i}
+                                    text={formatTag(ability.ability.name)}
+                                />
+                            ))}
+                        </TagList>
 
-                            <Flex flexWrap="wrap">
-                                {pokemonData.abilities.map((ability, i) => (
-                                    <Tag
-                                        key={i}
-                                        size="sm"
-                                        margin="1"
-                                        colorScheme="blue"
-                                    >
-                                        {formatTag(ability.ability.name)}
-                                    </Tag>
-                                ))}
-                            </Flex>
-                        </Flex>
+                        <TagList label="Forms">
+                            {pokemonData.forms.map((form, i) => (
+                                <StyledTag key={i} text={form.name} />
+                            ))}
+                        </TagList>
 
-                        <Flex direction="column">
-                            <Text fontWeight="bold">Forms:</Text>
+                        <TagList label="Stats">
+                            {pokemonData.stats.map((stat, i) => (
+                                <StyledTag
+                                    key={i}
+                                    text={`${formatTag(stat.stat.name)}: ${
+                                        stat.base_stat
+                                    }`}
+                                />
+                            ))}
+                        </TagList>
 
-                            <Flex flexWrap="wrap">
-                                {pokemonData.forms.map((form, i) => (
-                                    <Tag
-                                        key={i}
-                                        size="sm"
-                                        margin="1"
-                                        colorScheme="blue"
-                                    >
-                                        {form.name}
-                                    </Tag>
-                                ))}
-                            </Flex>
-                        </Flex>
-
-                        <Flex direction="column">
-                            <Text fontWeight="bold">Stats:</Text>
-                            <Flex flexWrap="wrap">
-                                {pokemonData.stats.map((stat, i) => (
-                                    <Tag
-                                        key={i}
-                                        size="sm"
-                                        margin="1"
-                                        colorScheme="blue"
-                                    >
-                                        {stat.stat.name}: {stat.base_stat}
-                                    </Tag>
-                                ))}
-                            </Flex>
-                        </Flex>
+                        <TagList label="Types">
+                            {pokemonData.types.map((type, i) => (
+                                <StyledTag
+                                    key={i}
+                                    text={formatTag(type.type.name)}
+                                />
+                            ))}
+                        </TagList>
                     </>
                 )}
             </Flex>

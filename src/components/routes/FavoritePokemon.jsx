@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Flex, Box, Container, Text } from "@chakra-ui/react";
-import PokemonCard from "./PokemonCard";
-import StyledListItem from "./lists/StyledListItem";
+import PokemonCard from "../cards/PokemonCard";
+import StyledListItem from "../lists/StyledListItem";
 
 const FavoritePokemon = ({ favoritePokemon, setFavoritePokemon }) => {
     const [currentPokemon, setCurrentPokemon] = useState(null);
@@ -11,7 +11,8 @@ const FavoritePokemon = ({ favoritePokemon, setFavoritePokemon }) => {
         if (currentPokemon) {
             fetch(`https://pokeapi.co/api/v2/pokemon/${currentPokemon}`)
                 .then((response) => response.json())
-                .then((data) => setPokemondata(data));
+                .then((data) => setPokemondata(data))
+                .catch((err) => console.log(err));
         }
     }, [currentPokemon]);
 

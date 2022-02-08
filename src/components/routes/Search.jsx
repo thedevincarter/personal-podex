@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from "react";
 import _ from "lodash";
 import { Box, Input, Container, Spinner, Center } from "@chakra-ui/react";
-import PokemonCard from "./PokemonCard";
-import StyledListItem from "./lists/StyledListItem";
+import PokemonCard from "../cards/PokemonCard";
+import StyledListItem from "../lists/StyledListItem";
 
 const Search = ({ favoritePokemon, setFavoritePokemon }) => {
     const [pokemonList, setPokemonList] = useState(null);
@@ -20,7 +20,8 @@ const Search = ({ favoritePokemon, setFavoritePokemon }) => {
             .then((data) => {
                 setPokemonList(data.results);
                 setLoading(false);
-            });
+            })
+            .catch((err) => console.log(err));
     }, []);
 
     let debounced;
@@ -33,10 +34,11 @@ const Search = ({ favoritePokemon, setFavoritePokemon }) => {
                     setSearchResults(null);
                     return;
                 } else {
-                    let filteredPokemon = pokemonList.filter((pokemon) =>
-                        pokemon["name"].includes(val)
+                    setSearchResults(
+                        pokemonList.filter((pokemon) =>
+                            pokemon["name"].includes(val)
+                        )
                     );
-                    setSearchResults(filteredPokemon);
                 }
             }, 300);
         }
@@ -59,7 +61,8 @@ const Search = ({ favoritePokemon, setFavoritePokemon }) => {
                 setPokemonData(data);
                 setSearchResults(null);
                 setLoading(false);
-            });
+            })
+            .catch((err) => console.log(err));
     };
 
     if (loading) {

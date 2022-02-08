@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout";
-import Search from "./components/Search";
-import FavoritePokemon from "./components/FavoritePokemon";
+import Layout from "./components/routes/Layout";
+import Search from "./components/routes/Search";
+import FavoritePokemon from "./components/routes/FavoritePokemon";
 
 const App = () => {
     const [favoritePokemon, setFavoritePokemon] = useState([]);

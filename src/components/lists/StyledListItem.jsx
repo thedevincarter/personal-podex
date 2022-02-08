@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
-import { titleCase } from "../../utils/textUtils";
+import { titleCase } from "../../utils/utils";
 
 const StyledListItem = ({ onClick, title }) => {
     return (
