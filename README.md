@@ -4,7 +4,7 @@ I built this solution using React, Chakra UI, and the fetch API.
 
 #### Setup Steps
 1. Run `npm install` from the root directory of the project to install a few dependencies.
-2. Run `npm run build` from the root directory to generate a production bundle and output it to `build`
+2. Run `npm run build` from the root directory to generate a production bundle and output it to the `build` directory
    1. Run `serve -s build` to serve this bundle at `http://localhost:3000`
 
 #### General Overview
