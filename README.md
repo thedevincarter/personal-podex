@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+## Solution :tada:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I built this solution using React, Chakra UI, and the fetch API.
 
-## Available Scripts
+#### Setup Steps
+1. Run `npm install` from the root directory of the project to install a few dependencies.
+2. Run `npm run build` from the root directory to generate a production bundle and output it to `build`
+   1. Run `serve -s build` to serve this bundle at `http://localhost:3000`
 
-In the project directory, you can run:
+---
 
-### `npm start`
+Head over to https://pokeapi.co/. This API can be used to get all the information you could ever want to know about Pokémon. Your task is to build a web app so that users can more easily explore this API. The app should have the following: 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Page 1: 
+ - allow finding a Pokémon by name
+ - once found it should display:
+   - an image of the Pokémon
+   - its height and weight
+   - the names of the moves available to the Pokémon
+ - allow adding a Pokémon to the user's list of favorite Pokémon
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Page 2: 
+ - display a list of the user's favorite Pokémon
+ - allow them to easily get more information about these Pokémon
+ - allow removing Pokémon from their list of favorites
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Don't worry about creating a backend to persist this information. 
+Please create a public GitHub repository for this project and send us the link once you're finished.
+We will build and run the web app locally to evaluate it, and then discuss your solution in a follow up interview.
